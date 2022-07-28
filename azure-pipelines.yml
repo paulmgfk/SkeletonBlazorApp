@@ -1,15 +1,4 @@
 # ASP.NET Core (.NET Framework)
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
-    publishWebProjects: false
-    projects: |
-      **/SkeletonBlazorApp.Server.csproj
-      **/SkeletonBlazorApp.Shared.csproj
-      **/SkeletonBlazorApp.Client.csproj
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
 - master
@@ -40,3 +29,12 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: |
+      **/SkeletonBlazorApp.Server.csproj
+      **/SkeletonBlazorApp.Shared.csproj
+      **/SkeletonBlazorApp.Client.csproj
